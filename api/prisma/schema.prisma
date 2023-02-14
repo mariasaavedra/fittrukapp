@@ -1,0 +1,78 @@
+generator client {
+  provider = "prisma-client-js"
+}
+
+datasource db {
+  provider = "postgresql"
+  url      = env("DATABASE_URL")
+}
+
+model User {
+  id            Int            @id @default(autoincrement())
+  first_name    String
+  last_name     String
+  email         String         @unique
+  password      String
+  token         String?
+  city          String
+  dob           String
+  role_id       Int
+  zip           String
+  state         String
+  role          Role           @relation(fields: [role_id], references: [id])
+  events        Event[]
+  avatar_url    String?
+  registrations Registration[]
+}
+
+model Role {
+  id    Int    @id @default(autoincrement())
+  label String @unique
+  users User[]
+}
+
+model Event {
+  id            Int            @id @default(autoincrement())
+  capacity      String
+  company_id    String
+  cover_url     String
+  description   String
+  price         String
+  skill_level   String
+  end_time      DateTime
+  start_time    DateTime
+  type          String
+  trainer_id    Int
+  title         String
+  User          User           @relation(fields: [trainer_id], references: [id])
+  registrations Registration[]
+}
+
+model Registration {
+  id       Int   @id @default(autoincrement())
+  event_id Int
+  user_id  Int
+  userId   Int
+  event    Event @relation(fields: [event_id], references: [id])
+  User     User  @relation(fields: [userId], references: [id])
+}
+
+model Vehicle {
+  id           Int     @id @default(autoincrement())
+  label        String
+  dot_number   Int
+  plate_number String
+  company_id   Int
+  Company      Company @relation(fields: [company_id], references: [id])
+}
+
+model Company {
+  id       Int       @id @default(autoincrement())
+  label    String    @unique
+  vehicles Vehicle[]
+}
+
+model Waiver {
+  id         Int    @id @default(autoincrement())
+  company_id String @unique
+}

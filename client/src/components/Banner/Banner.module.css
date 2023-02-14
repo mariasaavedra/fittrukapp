@@ -1,0 +1,14 @@
+.BannerComponent {
+  width: 100%;
+  height: 248px;
+  top: 0px;
+  right: 0;
+  position: relative;
+  z-index: 1;
+  background: linear-gradient(
+    92.11deg,
+    #a7d064 0%,
+    #c1de92 51.01%,
+    #daebbd 100%
+  );
+}

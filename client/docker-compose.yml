@@ -1,0 +1,15 @@
+version: '3'
+
+services:
+  app: 
+    image: fittruk-client
+    build: .
+    ports:
+      - 3000:3000
+    # Create mappings between project directory + docker work directory
+    # this allows us to enable live reloading.
+    volumes: 
+      - ./public:/app/public
+      - ./src:/app/src
+      - ./next.config.js:/app/next.config.js
+

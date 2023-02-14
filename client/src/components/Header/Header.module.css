@@ -1,0 +1,4 @@
+.HeaderComponent {
+  display: grid;
+  @apply grid-cols-3;
+}

@@ -1,0 +1,30 @@
+.ReadMoreReadLessComponent {
+  color: #6D6E71;
+  font-size: 1rem;
+  font-weight: 400;
+  line-height: 24px;
+  letter-spacing: 0.05em;
+  padding-bottom: 35px;
+  text-align: justify;
+}
+
+.readMoreButton {
+    color: #1B1B1E;
+    font-weight: 500;
+    padding-left: 5px;
+}
+
+.desktop {
+    display: none;
+}
+
+/* Logic to switch between desktop and mobile descriptions; read more will only show on mobile */
+@media screen and (min-width: 800px) {
+    .desktop {
+        display: block;
+    }
+
+    .mobile {
+        display: none;
+    }
+}

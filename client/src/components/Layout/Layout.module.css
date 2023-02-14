@@ -1,0 +1,6 @@
+
+.LayoutComponent {
+    display: grid;  
+    /* grid-template-columns: minmax(50px, 220px) 1fr;  */
+
+  }

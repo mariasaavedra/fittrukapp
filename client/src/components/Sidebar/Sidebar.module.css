@@ -1,0 +1,11 @@
+.SidebarComponent {
+
+  /* Shades Color/White 0 F */
+  background: #ffffff;
+  box-shadow: 4px 0px 16px #e1e5f1;
+  top: 0;
+  bottom: 0;
+  width: 220px;
+  height: 100vh;
+  @apply hidden md:block
+}

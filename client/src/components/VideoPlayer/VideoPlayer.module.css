@@ -1,0 +1,32 @@
+.videoContainer {
+  margin-top: 60px;
+  border-radius: 16px;
+  overflow: hidden;
+}
+
+.video {
+  height: auto!important; /* important needed to override default styles */
+  width: 100% !important; /* important needed to override default styles */
+  object-fit: cover;
+}
+
+@media screen and (min-width: 768px) {
+  .videoContainer {
+    margin-top: 45px;
+    width: 45%;
+    border-radius: 16px;
+    overflow: hidden;
+  }
+  
+  .video {
+    height: 100% !important; /* important needed to override default styles */
+    width: auto !important; /* important needed to override default styles */
+    object-fit: cover;
+  }
+}
+
+@media screen and (min-width: 1000px) {
+  .video {
+    object-fit: cover;
+  }
+}

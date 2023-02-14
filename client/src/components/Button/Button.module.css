@@ -1,0 +1,12 @@
+.ButtonComponent {
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+    padding: 15px 20px;
+    gap: 8px;
+    border-radius: 16px;
+    color: #fff;
+    min-width: 150px;
+    
+}

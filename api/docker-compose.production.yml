@@ -1,0 +1,15 @@
+# A Docker Compose must always start with the version tag.
+# We use '3' because it's the last version.
+version: "3"
+services:
+  # The name of our service is "database"
+  # but you can use the name of your choice.
+  # Note: This may change the commands you are going to use a little bit.
+  api:
+    image: fittruk-api-prod
+    build:
+      dockerfile: Dockerfile.production
+      context: .
+    ports:
+      - 3333:3333
+      - 5432:5432

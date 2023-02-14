@@ -1,0 +1,6 @@
+.ContentComponent {
+  padding: 4rem 3rem;
+  height: 100vh;
+  overflow-y:  scroll;
+  overflow-x: hidden;
+}

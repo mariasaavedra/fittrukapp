@@ -1,0 +1,76 @@
+.UserCardComponent {
+  /* Card */
+  box-sizing: border-box;
+  position: relative;
+  /* Auto layout */
+  display: inline-flex;
+  flex-direction: row-reverse;
+  justify-content: space-between;
+  align-items: flex-start;
+  padding: 20px 16px 20px 24px;
+  gap: 11px;
+  isolation: isolate;
+  width: 100%;
+  max-width: 384px;
+  height: 238px;
+  /* Shades Color/White 0 F */
+  background: #ffffff;
+  /* Natural Grey/Grey 200 */
+  border: 1px solid #e8e9ed;
+  box-shadow: 0px 0px 16px #e1e5f1;
+  border-radius: 24px;
+  /* Inside auto layout */
+  flex: none;
+  order: 0;
+  flex-grow: 1;
+  overflow: hidden;
+  margin: 4px;
+}
+.details {
+  /* Personal Details */
+
+  /* Auto layout */
+
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  padding: 0px;
+  gap: 4px;
+
+  width: 193px;
+  height: 84px;
+
+  /* Inside auto layout */
+
+  flex: none;
+  order: 1;
+  align-self: stretch;
+  flex-grow: 0;
+}
+.label {
+  font-style: normal;
+  font-weight: 500;
+  font-size: 12px;
+  line-height: 16px;
+  /* identical to box height, or 133% */
+
+  letter-spacing: 0.05em;
+
+  /* Natural Grey/Grey 600 F */
+
+  color: #6d6e71;
+}
+.name {
+  font-style: normal;
+  font-weight: 600;
+  font-size: 20px;
+  line-height: 28px;
+  /* identical to box height, or 140% */
+  letter-spacing: 0.05em;
+  /* Primary Green/Green 500 F */
+  color: #80bd02;
+  margin-bottom: 2rem;
+}
+.photo {
+  clip-path: polygon(50% 0, 100% 25%, 100% 75%, 50% 100%, 0 75%, 0 25%);
+}
