@@ -1,48 +1,30 @@
 import React, { useEffect, useState } from "react";
-import Logo from "../Logo/Logo";
 import NavItem from "../NavItem/NavItem";
 import styles from "./Sidebar.module.css";
-import DashboardIcon from "@mui/icons-material/Dashboard";
-import Image from "next/image";
-import {
-  DocumentScanner,
-  FitnessCenter,
-  ManageHistory,
-  Person,
-} from "@mui/icons-material";
 import { useUser } from "@auth0/nextjs-auth0";
 import Link from "next/link";
 
 export interface SidebarProps { }
 
 export default function Sidebar(props: SidebarProps) {
-  const { user, error, isLoading } = useUser();
+  const { user, isLoading } = useUser();
   const [isAdmin, setIsAdmin] = useState(false);
 
   useEffect(() => {
     if (user) {
-      if (user.email === 'msaav3@gmail.com') {
-        setIsAdmin(true);
-      }
-      
-      if (user.email === 'maria@advadigitalsolutions.com') {
-        setIsAdmin(false);
-      }
-      // fetch(`http://localhost:3333/users/${user.id}`).then(async (response) => {
-      //   if (response.status !== 200) {
-      //     throw Error("Unable to load user");
-      //   } else {
-      //     const user = await response.json();
-      //     if (user.role_id === 1 || user.role_id === 2) {
-      //       setIsAdmin(true);
-      //     }
-      //   }
-      // });
+      fetch(`http://localhost:3333/users/${user.id}`).then(async (response) => {
+        if (response.status !== 200) {
+          throw Error("Unable to load user");
+        } else {
+          const user = await response.json();
+          if (user.role_id === 1 || user.role_id === 2) {
+            setIsAdmin(true);
+          }
+        }
+      });
     }
   }, [user]);
 
-  const isTrainer = false;
-  const isMember = false;
   if (isLoading) {
     return <div>Loading ...</div>;
   }
@@ -52,14 +34,11 @@ export default function Sidebar(props: SidebarProps) {
       {/* <Logo></Logo> */}
       <Link href="/">
         <img src={"/images/logo.png"} height="auto" className="p-8" alt="Logo" />
-
       </Link>
-
-
 
       {user && (
         <>
-          {isAdmin && user.email !== 'maria@advadigitalsolutions.com' && (
+          {isAdmin && (
             <>
               <NavItem
                 label={"Users"}
@@ -83,7 +62,7 @@ export default function Sidebar(props: SidebarProps) {
               ></NavItem>
             </>
           )}
-          {!isAdmin  || user.email === 'maria@advadigitalsolutions.com' && (
+          {!isAdmin && (
             <>
               <NavItem
                 label={"Classes"}

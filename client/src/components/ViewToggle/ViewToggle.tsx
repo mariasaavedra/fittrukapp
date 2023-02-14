@@ -11,13 +11,13 @@ export interface ViewToggleProps {
 export default function ViewToggle(props: ViewToggleProps) {
   return (
     <div className={styles.ViewToggleComponent}>
-      {/* <Button onClick={() => props.toggleFn()}>
+      <Button onClick={() => props.toggleFn()}>
         <img src="/images/icons/card_view_icon.png"></img>
       </Button>
 
       <Button onClick={() => props.toggleFn()}>
         <img src="/images/icons/class_list_icon.png"></img>
-      </Button> */}
+      </Button>
     </div>
   );
 }

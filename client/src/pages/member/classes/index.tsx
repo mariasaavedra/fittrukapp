@@ -28,23 +28,16 @@ export default function Classes() {
 
   useEffect(() => {
     if (user) {
-      if (user.email === 'msaav3@gmail.com') {
-        setIsAdmin(true);
-      }
-      
-      if (user.email === 'maria@advadigitalsolutions.com') {
-        setIsAdmin(false);
-      }
-      // fetch(`http://localhost:3333/users/53`).then(async (response) => {
-      //   if (response.status !== 200) {
-      //     throw Error("Unable to load user");
-      //   } else {
-      //     const user = await response.json();
-      //     if (user.role_id === 1 || user.role_id === 2) {
-      //       setIsAdmin(true);
-      //     }
-      //   }
-      // });
+      fetch(`http://localhost:3333/users/${user.id}`).then(async (response) => {
+        if (response.status !== 200) {
+          throw Error("Unable to load user");
+        } else {
+          const user = await response.json();
+          if (user.role_id === 1 || user.role_id === 2) {
+            setIsAdmin(true);
+          }
+        }
+      });
     }
   }, [user]);
 
